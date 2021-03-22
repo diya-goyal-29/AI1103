@@ -1,0 +1,105 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\title{Assignment 1}
+\author{DIYA GOYAL\\
+Roll no. CS20BTECH11014}
+\date{15 March 2021}
+
+\begin{document}
+
+\maketitle
+\large Download all python codes from\\
+\begin{lstlisting}
+https://github.com/diya-goyal-29/AI1103/tree/main/Assignement\%201/Code
+\end{lstlisting}
+
+
+\large and latex - tikz codes from \\
+\begin{lstlisting}
+https://github.com/diya-goyal-29/AI1103/blob/main/Assignment%201/Assignment%201.tex
+\end{lstlisting}
+\\ \\
+\large\textbf{Question 1.19 :} \\
+Harpreet tosses two different coins simultaneously (say, one is of rupee 1 and other of rupees 2). What is the probability that she gets at least one head? \\
+\large\textbf{Solution :}\\
+Total number of coins = $n$ = 2\\
+The total no. of outcomes = 4\\ 
+\{HH, HT, TH, TT\}\\
+Let $p$ = probability of head = $\frac{1}{2}$\\
+$q$ = probability of tail = $\frac{1}{2}$\\
+$X$ = number of heads obtained\\
+\begin{equation*}
+    \begin{split}
+   \text{ Probability of at least one head}\\
+        & = P(X = 1) + P(X = 2) \\
+        & = ^2 C _1 (\frac{1}{2})(\frac{1}{2}) + ^2 C _2 (\frac{1}{2})^2\\ 
+        & = 2 \times \frac{1}{4} + \frac{1}{4}\\
+        & = \frac{3}{4}\\
+        & = 0.75\\
+    \end{split}
+\end{equation*}
+
+
+\end{document}

@@ -44,6 +44,7 @@
 
 \DeclareMathOperator*{\Res}{Res}
 
+\newcommand{\fbrack}[2]{\genfrac{[}{]}{}{}{#1}{#2}}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
@@ -86,16 +87,16 @@ Harpreet tosses two different coins simultaneously (say, one is of rupee 1 and o
 \large\textbf{Solution :}\\
 Total number of coins = $n$ = 2\\
 The total no. of outcomes = 4\\ 
-\{HH, HT, TH, TT\}\\
 Let $p$ = probability of head = $\frac{1}{2}$\\
 $q$ = probability of tail = $\frac{1}{2}$\\
 $X$ = number of heads\\ \\
-Probability of at least one head\\
-    \begin{align*}
-         = \pr{P(X = 1)} + \pr{P(X = 2)} \\
-         = {^2 C _1} (\frac{1}{2})(\frac{1}{2}) + {^2 C _2} (\frac{1}{2})^2\\ 
-         = 2 \times \frac{1}{4} + \frac{1}{4}\\
-         = \frac{3}{4}\\
-         = 0.75
-    \end{align*}
+Probability of at least one head
+    \begin{align}
+         &= {Pr(X = 1)} + {Pr(X = 2)} \\
+         &= {^2 C _1}\times{p}\times{q} + {^2 C _2}\times{p^2}\\
+         &= {^2 C _1} \fbrack{1}{2} \fbrack{1}{2} + {^2 C _2} {\fbrack{1}{2}}^2\\ 
+         &= 2 \times \frac{1}{4} + \frac{1}{4}\\
+         &= \frac{3}{4}\\
+         &= 0.75
+    \end{align}
 \end{document}

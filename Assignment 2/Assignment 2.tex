@@ -120,7 +120,7 @@ columns=fullflexible
 \bigskip
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
- and latex-tikz codes from 
+latex-tikz codes from 
 \begin{lstlisting}
 https://github.com/diya-goyal-29/AI1103/blob/main/Assignment%202/Assignment%202.tex
 \end{lstlisting}
@@ -131,13 +131,16 @@ Mean = $\mu$ = 0\\
 Variance = $\sigma$ = 1\\
 Gaussian Probability Distribution function = $p(x)$ \\= $\frac{1}{\sqrt{2\pi\sigma}} exp (\frac{-(x - \mu)^2}{2\sigma^2})$\\
        = $\frac{1}{\sqrt{2\pi}} exp (\frac{-x^2}{2})$\\
+
 \begin{align}
-     E[|X|] &= \int_{-\infty}^{\infty} |x| p(x)\\
-       &= \int_{-\infty}^{\infty} |x| \frac{1}{\sqrt{2\pi}} \text{exp} (\frac{-x^2}{2}) dx\\
-       &= 2 \times \frac{1}{\sqrt{2\pi}} \int_{0}^{\infty} x \text{ exp} (\frac{-x^2}{2}) dx\\
-       &= \sqrt{\frac{2}{\pi}} \int_{0}^{\infty} \text{exp} (-u) du\\
-       &= \sqrt{\frac{2}{\pi}} \times(-1) \times (0 - 1)\\
-       &= \sqrt{\frac{2}{\pi}}\\
-       &= 0.799
+    \phi(t) &= \int _{-\infty} ^{\infty} p(x) \text{ exp} (tx) dx\\
+    \phi'(t) &= \int _{-\infty} ^{\infty} p(x) x \text{ exp} (tx) dx\\
+    E[X] &= \phi'(0)\\
+    &= \int _{-\infty} ^{\infty} |x| p(x)\\
+    &= 2 \cdot \int _{0} ^{\infty} x p(x) dx \\
+    &= 2 \cdot \int _{0} ^{\infty} x \frac{1}{\sqrt{2\pi}} \text{ exp} (\frac{-x^2}{2}) dx\\
+    &= \sqrt{\frac{2}{\pi}} \cdot \int _{0} ^{\infty} x \text{ exp} (\frac{-x^2}{2}) dx\\
+    &= \sqrt{\frac{2}{\pi}}\\
+    &= 0.7978
 \end{align}
 \end{document}

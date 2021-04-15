@@ -133,10 +133,7 @@ Gaussian Probability Distribution function = $p(x)$ \\= $\frac{1}{\sqrt{2\pi\sig
        = $\frac{1}{\sqrt{2\pi}} exp (\frac{-x^2}{2})$\\
 
 \begin{align}
-    \phi(t) &= \int _{-\infty} ^{\infty} p(x) \text{ exp} (tx) dx\\
-    \phi'(t) &= \int _{-\infty} ^{\infty} p(x) x \text{ exp} (tx) dx\\
-    E[X] &= \phi'(0)\\
-    &= \int _{-\infty} ^{\infty} |x| p(x)\\
+    E[|X|] &= \int _{-\infty} ^{\infty} |x| p(x)\\
     &= 2 \cdot \int _{0} ^{\infty} x p(x) dx \\
     &= 2 \cdot \int _{0} ^{\infty} x \frac{1}{\sqrt{2\pi}} \text{ exp} (\frac{-x^2}{2}) dx\\
     &= \sqrt{\frac{2}{\pi}} \cdot \int _{0} ^{\infty} x \text{ exp} (\frac{-x^2}{2}) dx\\

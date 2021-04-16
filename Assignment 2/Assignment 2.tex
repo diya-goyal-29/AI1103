@@ -129,14 +129,19 @@ Let $X$ be a zero mean unit variance Gaussian random variable. $E[|X|]$ is equal
 \large \textbf{Solution}\\
 Mean = $\mu$ = 0\\
 Variance = $\sigma$ = 1\\
-Gaussian Probability Distribution function = $p(x)$ \\= $\frac{1}{\sqrt{2\pi\sigma}} exp (\frac{-(x - \mu)^2}{2\sigma^2})$\\
-       = $\frac{1}{\sqrt{2\pi}} exp (\frac{-x^2}{2})$\\
+Gaussian Probability Distribution Function
+\begin{align}
+    &= p(x) \\
+    &= \frac{1}{\sqrt{2\pi\sigma}} \text{ exp} (\frac{-(x - \mu)^2}{2\sigma^2})\\
+    &= \frac{1}{\sqrt{2\pi}} \text{ exp} (\frac{-x^2}{2})
+\end{align}
+
 
 \begin{align}
     E[|X|] &= \int _{-\infty} ^{\infty} |x| p(x)\\
-    &= 2 \cdot \int _{0} ^{\infty} x p(x) dx \\
-    &= 2 \cdot \int _{0} ^{\infty} x \frac{1}{\sqrt{2\pi}} \text{ exp} (\frac{-x^2}{2}) dx\\
-    &= \sqrt{\frac{2}{\pi}} \cdot \int _{0} ^{\infty} x \text{ exp} (\frac{-x^2}{2}) dx\\
+    &= 2 \int _{0} ^{\infty} x p(x) dx \\
+    &= 2 \int _{0} ^{\infty} x \frac{1}{\sqrt{2\pi}} \text{ exp} (\frac{-x^2}{2}) dx\\
+    &= \sqrt{\frac{2}{\pi}} \int _{0} ^{\infty} x \text{ exp} (\frac{-x^2}{2}) dx\\
     &= \sqrt{\frac{2}{\pi}}\\
     &= 0.7978
 \end{align}

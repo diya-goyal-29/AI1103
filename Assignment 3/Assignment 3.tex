@@ -139,24 +139,24 @@ Replacing n with n+1\\
 The event $\{N \leq n\}$ is the same as $\{S_{n+1}>1\}$ (or equivalently, $\{N > n\}$ is the same as $\{S_{n+1} \geq 1\}$).\\
 By the tail-sum formula, we can thus get the expectation of $N$ as\\
 \begin{align}
-    E[N] = \sum ^\infty _{n = 0} P(N > n) = \sum ^\infty _{n = 0} P(S_n \leq 1)
+    \mean{N} = \sum ^\infty _{n = 0} P(N > n) = \sum ^\infty _{n = 0} P(S_n \leq 1)
 \end{align}
 $S_n$ follows Erlang distribution.\\
 \begin{align}
     \text{P.D.F of }S_n =\frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!}\\
     P(S_n \leq 1) = \int _0 ^1 \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx
 \end{align}
-Substituting the value in equation 0.0.1\\
+Substituting the value\\
 \begin{align}
-    E[N] &= \sum _{n = 0} ^\infty \int _0 ^1  \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
+    \mean{N} &= \sum _{n = 0} ^\infty \int _0 ^1  \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
     &= \int _0 ^1 \sum _{n = 0} ^\infty \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
     e^{x\lambda} &= \sum _{n = 0} ^ \infty\frac{(x\lambda)^n}{(n)!}\\
-    E[N] &=\lambda  \int _0 ^1 e^{\lambda x} e^{-\lambda x} dx\\
+    \mean{N} &=\lambda  \int _0 ^1 e^{\lambda x} e^{-\lambda x} dx\\
     &= \lambda \int _0 ^1 dx\\
     &= \lambda
 \end{align}
 \begin{align}
-    E[N^2] &= \sum _{n = 0} ^\infty P(N^2 \geq n)\\
+    \mean{N^2} &= \sum _{n = 0} ^\infty P(N^2 \geq n)\\
     &= \sum _{n = 0} ^\infty [(n+1)^2 - n^2] P(N \geq n)\\
     &= \sum _{n = 0} ^\infty [2n + 1] P(S_{n+1} \leq 1)\\
     &=  \sum _{n = 0} ^\infty \int _0 ^1 [2n+1] \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
@@ -165,7 +165,7 @@ Substituting the value in equation 0.0.1\\
     &= \lambda ^2 + \lambda
 \end{align}
 \begin{align}
-    Var(N) &= E[N^2] - E[N]^2\\
+    Var(N) &= \mean{N^2} - \mean{N}^2\\
     &= \lambda^2 + \lambda - (\lambda)^2\\
     &= \lambda
 \end{align}

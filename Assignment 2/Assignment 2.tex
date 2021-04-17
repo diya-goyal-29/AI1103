@@ -124,24 +124,24 @@ latex-tikz codes from
 \begin{lstlisting}
 https://github.com/diya-goyal-29/AI1103/blob/main/Assignment%202/Assignment%202.tex
 \end{lstlisting}
-\large \textbf{Gate problem no. 42}\\
-Let $X$ be a zero mean unit variance Gaussian random variable. $E[|X|]$ is equal to \dots\\
-\large \textbf{Solution}\\
+\section{Gate problem no. 42}\\
+Let $X$ be a zero mean unit variance Gaussian random variable. $\mean{\abs X}$ is equal to \dots\\
+\section{Solution}\\
 Mean = $\mu$ = 0\\
 Variance = $\sigma$ = 1\\
 Gaussian Probability Distribution Function
 \begin{align}
-    &= p(x) \\
-    &= \frac{1}{\sqrt{2\pi\sigma}} \text{ exp} (\frac{-(x - \mu)^2}{2\sigma^2})\\
-    &= \frac{1}{\sqrt{2\pi}} \text{ exp} (\frac{-x^2}{2})
+    &= f(x)\\
+    &= \frac{1}{\sqrt{2\pi\sigma}} \exp{\left(\frac{-(x - \mu)^2}{2\sigma^2}\right)}\\
+    &= \frac{1}{\sqrt{2\pi}} \exp{ \left(\frac{-x^2}{2}\right)}
 \end{align}
 
 
 \begin{align}
-    E[|X|] &= \int _{-\infty} ^{\infty} |x| p(x)\\
-    &= 2 \int _{0} ^{\infty} x p(x) dx \\
-    &= 2 \int _{0} ^{\infty} x \frac{1}{\sqrt{2\pi}} \text{ exp} (\frac{-x^2}{2}) dx\\
-    &= \sqrt{\frac{2}{\pi}} \int _{0} ^{\infty} x \text{ exp} (\frac{-x^2}{2}) dx\\
+    \mean{ \abs X} &= \int _{-\infty} ^{\infty} \abs x f(x)\\
+    &= 2 \int _{0} ^{\infty} x f(x) dx \\
+    &= 2 \int _{0} ^{\infty} x \frac{1}{\sqrt{2\pi}}  \exp{\left(\frac{-x^2}{2}\right)} dx\\
+    &= \sqrt{\frac{2}{\pi}} \int _{0} ^{\infty} x  \exp {\left(\frac{-x^2}{2}\right)} dx\\
     &= \sqrt{\frac{2}{\pi}}\\
     &= 0.7978
 \end{align}

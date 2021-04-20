@@ -124,7 +124,7 @@ Download latex-tikz codes from
 \begin{lstlisting}
 https://github.com/diya-goyal-29/AI1103/blob/main/Assignment%203/Assignment%203.tex
 \end{lstlisting}
-\large \textbf{CSIR-UGC-NET-Exam-JUNE-2015 Question 60 :}\\
+\section{CSIR-UGC-NET-Exam-JUNE-2015 Question 60 :}\\
 Let $X_1, X_2, \dots, X_n$ be independent and identically distributed random variables having an exponential distribution with mean $\frac{1}{\lambda}$.Let $S_n = X_1 + X_2 + \cdots + X_n$ and $N = inf \{n \geq 1: S_n > 1\}$. Then $Var(N)$ is\\
 \begin{enumerate}
     \item 1
@@ -133,18 +133,27 @@ Let $X_1, X_2, \dots, X_n$ be independent and identically distributed random var
     \item $\infty$
 \end{enumerate}
 \\ \\
-\large \textbf{Solution :}\\
+\section{Solution :}\\
 $Var(N) = E[N^2] - E[N]^2$\\
 Replacing n with n+1\\
 The event $\{N \leq n\}$ is the same as $\{S_{n+1}>1\}$ (or equivalently, $\{N > n\}$ is the same as $\{S_{n+1} \geq 1\}$).\\
+\textbf{Tail Sum formula : } A random variable $X$ which takes values only in \mathbf{N}, then $\mean{X} = \sum _{k=1} ^\infty Pr(X\geqk)$\\
+\textbf{Proof : }\\
+\begin{align}
+    \mean{X} &= \sum _{x = 1} ^\infty x Pr(X=x)\\
+    &= \sum _{x = 1} ^\infty \sum _{k=1} ^x Pr(X=x)\\
+    &= \sum _{k = 1} ^\infty \sum _{x = k} ^\infty Pr(X=x)\\
+    &= \sum _{k = 1} ^\infty Pr(X\geq k)
+\end{align}
+
 By the tail-sum formula, we can thus get the expectation of $N$ as\\
 \begin{align}
-    \mean{N} = \sum ^\infty _{n = 0} P(N > n) = \sum ^\infty _{n = 0} P(S_n \leq 1)
+    \mean{N} = \sum ^\infty _{n = 0} Pr(N > n) = \sum ^\infty _{n = 0} Pr(S_n \leq 1)
 \end{align}
 $S_n$ follows Erlang distribution.\\
 \begin{align}
     \text{P.D.F of }S_n =\frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!}\\
-    P(S_n \leq 1) = \int _0 ^1 \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx
+    Pr(S_n \leq 1) = \int _0 ^1 \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx
 \end{align}
 Substituting the value\\
 \begin{align}
@@ -155,10 +164,11 @@ Substituting the value\\
     &= \lambda \int _0 ^1 dx\\
     &= \lambda
 \end{align}
+By tail-sum formula the expectation of $N^2$ is\\
 \begin{align}
-    \mean{N^2} &= \sum _{n = 0} ^\infty P(N^2 \geq n)\\
-    &= \sum _{n = 0} ^\infty [(n+1)^2 - n^2] P(N \geq n)\\
-    &= \sum _{n = 0} ^\infty [2n + 1] P(S_{n+1} \leq 1)\\
+    \mean{N^2} &= \sum _{n = 0} ^\infty Pr(N^2 \geq n)\\
+    &= \sum _{n = 0} ^\infty [(n+1)^2 - n^2] Pr(N \geq n)\\
+    &= \sum _{n = 0} ^\infty [2n + 1] Pr(S_{n+1} \leq 1)\\
     &=  \sum _{n = 0} ^\infty \int _0 ^1 [2n+1] \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
     &= \int _0 ^1 \sum _{n = 0} ^\infty [2n+1]\frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
     &= \int _0 ^1 2\lambda^2 x e^{\lambda x} e^{-\lambda x} + \lambda e^{\lambda x} e^{-\lambda x} dx\\

@@ -41,6 +41,12 @@
     \usepackage{lscape}     
 \usepackage{multicol}
 \usepackage{chngcntr}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
 
 \DeclareMathOperator*{\Res}{Res}
 
@@ -138,6 +144,8 @@ $Var(N) = \mean{N^2} - \mean{N}^2$\\
 Replacing n with n+1\\
 $N$ is the greatest lower bound of the subset $S$ of $T$ (where $T$ is the set of all natural numbers and $S$ is the set of all natural numbers such that $S_n \geq 1$).\\
 The event $\{N \leq n\}$ implies $\{S_{n+1} > 1\}$ (or equivalently, $\{N > n\}$ implies $\{S_{n+1} \leq 1\}$).\\
+
+\begin{lemma}
 \textbf{Tail Sum formula : } A random variable $X$ which takes values only in \mathbf{N}, then $\mean{X} = \sum _{k=1} ^\infty Pr(X\geqk)$\\
 \textbf{Proof : }\\
 \begin{align}
@@ -146,6 +154,7 @@ The event $\{N \leq n\}$ implies $\{S_{n+1} > 1\}$ (or equivalently, $\{N > n\}$
     &= \sum _{n = 1} ^\infty \sum _{k = n} ^\infty Pr(X=k)\\
     &= \sum _{n = 1} ^\infty Pr(X\geq n)
 \end{align}
+\end{lemma}
 
 By the tail-sum formula, we can thus get the expectation of $N$ as\\
 \begin{align}

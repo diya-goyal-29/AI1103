@@ -172,13 +172,16 @@ $S_n$ follows Erlang distribution.\\
     Pr(S_n \leq 1) = \int _0 ^1 \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx
 \end{align}
 \textbf{P.D.F of Erlang distribution : }\\
+\begin{definition}
 \begin{align}
     f(x) = \frac{\lambda^{k} x^{k-1}e^{-\lambda x}}{(k-1)!}
 \end{align}
+\end{definition}
 where,\\
 $k$ is the shape\\
 $\lambda$ is the rate\\
-\textbf{Proof : }We can use mathematical induction to prove this\\
+To prove the above equation we can make use of mathematical induction.\\
+\begin{proof}
 \begin{align}
   S_1 &= X_1\\
   f_{S_1}(x) &= \lambda e^{[-\lambda x]}
@@ -193,6 +196,7 @@ Assuming $S_k$ to be true we need to prove that $S_{k+1}$ is true.\\
     &= \lambda^{k+1} e^{-\lambda x} \int _0 ^x \frac{t^{k-1}}{(k-1)!}\\
     &= \lambda^{k+1} e^{-\lambda x} \frac{x^k}{(k)!}
 \end{align}
+\end{proof}
 Substituting the value\\
 \begin{align}
     \mean{N} &= \sum _{n = 0} ^\infty \int _0 ^1  \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\

@@ -166,37 +166,25 @@ By the tail-sum formula, we can thus get the expectation of $N$ as\\
 \begin{align}
     \mean{N} = \sum ^\infty _{n = 0} Pr(N > n) = \sum ^\infty _{n = 0} Pr(S_n \leq 1)
 \end{align}
-$S_n$ follows Erlang distribution.\\
+
+\begin{corollary}
+Summation of independent and identical exponential random variables follows Erlang Distribution.\\
+\textbf{P.D.F of Erlang distribution : }\\
+\begin{align}
+    f(x) = \frac{\lambda^{k} x^{k-1}e^{-\lambda x}}{(k-1)!}
+\end{align}
+\end{corollary}
+where,\\
+$k$ is the shape\\
+$\lambda$ is the rate\\
+
+$S_n = \text{Erlang}(n,\lambda)$ \\
 \begin{align}
     \text{P.D.F of }S_n = f(x)_{S_n} = \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!}\\
     Pr(S_n \leq 1) = \int _0 ^1 \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx
 \end{align}
-\textbf{P.D.F of Erlang distribution : }\\
-\begin{definition}
-\begin{align}
-    f(x) = \frac{\lambda^{k} x^{k-1}e^{-\lambda x}}{(k-1)!}
-\end{align}
-\end{definition}
-where,\\
-$k$ is the shape\\
-$\lambda$ is the rate\\
-To prove the above equation we can make use of mathematical induction.\\
-\begin{proof}
-\begin{align}
-  S_1 &= X_1\\
-  f_{S_1}(x) &= \lambda e^{[-\lambda x]}
-\end{align}
-Basic step proved.\\
-Assuming $S_k$ to be true we need to prove that $S_{k+1}$ is true.\\
-\begin{align}
-    S_{k+1} &= X_1 + X_2 + X_3 + \dots + X_{k+1}\\
-    &= S_k + X_{k+1}\\
-    f_{S_{k+1}}(x) &= f_{S_k} + X_{k+1}\\
-    &= \int _0 ^x \lambda e^{-\lambda(x-t)} \cdot \lambda^k e^{-\lambda t} \frac{t^{k-1}}{(k-1)!}\\
-    &= \lambda^{k+1} e^{-\lambda x} \int _0 ^x \frac{t^{k-1}}{(k-1)!}\\
-    &= \lambda^{k+1} e^{-\lambda x} \frac{x^k}{(k)!}
-\end{align}
-\end{proof}
+ \\ \\ \\
+
 Substituting the value\\
 \begin{align}
     \mean{N} &= \sum _{n = 0} ^\infty \int _0 ^1  \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\

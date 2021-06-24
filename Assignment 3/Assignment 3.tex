@@ -142,7 +142,10 @@ Let $X_1, X_2, \dots, X_n$ be independent and identically distributed random var
 \end{enumerate}
 \\ \\
 \section{Solution :}\\
-$Var(N) = \mean{N^2} - \mean{N}^2$\\
+\begin{align}
+    Var(N) = \mean{N^2} - \mean{N}^2
+\end{align}
+
 Replacing n with n+1\\
 \begin{definition}[infimum]
 $N$ is the greatest lower bound of the subset $S$ of $T$ (where $T$ is the set of all natural numbers and $S$ is the set of all natural numbers such that $S_n \geq 1$).\\
@@ -195,7 +198,9 @@ Substituting the value\\
     &= \lambda \int _0 ^1 dx\\
     &= \lambda
 \end{align}
+\end{proof}
 By tail-sum formula (lemma \ref{lemma1}) the expectation of $N^2$ is\\
+\begin{proof}
 \begin{align}
     \mean{N^2} &= \sum _{n = 0} ^\infty Pr(N^2 \geq n)\\
     &= \sum _{n = 0} ^\infty [(n+1)^2 - n^2] Pr(N \geq n)\\
@@ -205,12 +210,17 @@ By tail-sum formula (lemma \ref{lemma1}) the expectation of $N^2$ is\\
     &= \int _0 ^1 2\lambda^2 x e^{\lambda x} e^{-\lambda x} + \lambda e^{\lambda x} e^{-\lambda x} dx\\
     &= \lambda ^2 + \lambda
 \end{align}
+\end{proof}
+Substituting the values of $\mean{N}$ and $\mean{N^2}$ in eq.(2.0.1)
+\begin{proof}
 \begin{align}
     Var(N) &= \mean{N^2} - \mean{N}^2\\
     &= \lambda^2 + \lambda - (\lambda)^2\\
     &= \lambda
 \end{align}
 \end{proof}
+
+
 
 Thus Option 2 is correct.
 

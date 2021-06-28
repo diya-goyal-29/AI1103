@@ -165,11 +165,6 @@ The event $\{N \leq n\}$ implies $\{S_{n+1} > 1\}$ (or equivalently, $\{N > n\}$
 \end{align}
 \end{proof}
 
-By the tail-sum formula(lemma \ref{lemma1}), we can thus get the expectation of $N$ as\\
-\begin{align}
-    \mean{N} = \sum ^\infty _{n = 0} Pr(N > n) = \sum ^\infty _{n = 0} Pr(S_n \leq 1)
-\end{align}
-
 \begin{corollary}
 Summation of independent and identical exponential random variables follows Erlang Distribution.\\
 \textbf{P.D.F of Erlang distribution : }\\
@@ -187,9 +182,14 @@ $S_n = \text{Erlang}(n,\lambda)$ \\
     Pr(S_n \leq 1) = \int _0 ^1 \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx
 \end{align}
  \\ \\ \\
+ 
+ By the tail-sum formula(lemma \ref{lemma1}), we can thus get the expectation of $N$ as\\
+\begin{align}
+    \mean{N} = \sum ^\infty _{n = 0} Pr(N > n) = \sum ^\infty _{n = 0} Pr(S_n \leq 1)
+\end{align}
 
 Substituting the value\\
-\begin{proof}
+
 \begin{align}
     \mean{N} &= \sum _{n = 0} ^\infty \int _0 ^1  \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
     &= \int _0 ^1 \sum _{n = 0} ^\infty \frac{\lambda^{n+1} x^{n}e^{-\lambda x}}{(n)!} dx\\
@@ -198,9 +198,9 @@ Substituting the value\\
     &= \lambda \int _0 ^1 dx\\
     &= \lambda
 \end{align}
-\end{proof}
+
 By tail-sum formula (lemma \ref{lemma1}) the expectation of $N^2$ is\\
-\begin{proof}
+
 \begin{align}
     \mean{N^2} &= \sum _{n = 0} ^\infty Pr(N^2 \geq n)\\
     &= \sum _{n = 0} ^\infty [(n+1)^2 - n^2] Pr(N \geq n)\\
@@ -210,17 +210,14 @@ By tail-sum formula (lemma \ref{lemma1}) the expectation of $N^2$ is\\
     &= \int _0 ^1 2\lambda^2 x e^{\lambda x} e^{-\lambda x} + \lambda e^{\lambda x} e^{-\lambda x} dx\\
     &= \lambda ^2 + \lambda
 \end{align}
-\end{proof}
+
 Substituting the values of $\mean{N}$ and $\mean{N^2}$ in eq.(2.0.1)
-\begin{proof}
+
 \begin{align}
     Var(N) &= \mean{N^2} - \mean{N}^2\\
     &= \lambda^2 + \lambda - (\lambda)^2\\
     &= \lambda
 \end{align}
-\end{proof}
-
-
 
 Thus Option 2 is correct.
 

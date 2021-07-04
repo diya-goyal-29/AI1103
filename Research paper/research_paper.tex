@@ -1,0 +1,255 @@
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{blkarray}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{bm}
+\usepackage{tikz}
+\setbeamertemplate{caption}[numbered]
+\usetikzlibrary{automata, positioning}
+\usetheme{Boadilla}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+
+\title{Research Paper Presentation}
+\author{Diya Goyal}
+\date{CS20BTECH11014}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\begin{block} {Title}
+Fast Cluster-Learning with prior probability from Big Dataset
+\end{block}
+\begin{block} {Authors}
+\begin{itemize}
+    \item Tengyue Li
+    \item Simon Fong
+    \item Joao Alexandre Lobo Marques
+    \item Raymond K Wong
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}{Terms to know}
+\begin{itemize}
+    \item \textbf{Apriori Algorithm : }Apriori is an algorithm for frequent item set mining and association rule learning over relational databases.
+\item \textbf{Association Rule Mining : }It is the data mining process of finding the rules that may govern associations and causal objects between sets of items.
+\item \textbf{Clustering : }In machine learning, we often group examples as a first step to understand a subject (data set) in a machine learning system. Grouping unlabeled examples is called clustering.
+\end{itemize}
+\end{frame}
+\begin{frame}{Terms to know}
+\begin{itemize}
+    \item \textbf{Preprocessing : }Data preprocessing is a process of preparing the raw data and making it suitable for a machine learning model. It is the first and crucial step while creating a machine learning model.
+\item \textbf{Prior Probability : }A probability as assessed before making reference to certain relevant observations, especially subjectively or on the assumption that all possible outcomes be given the same probability.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item The association rule mining algorithms, such as Apriori 
+method for instance and other successors were invented 
+in the late 90’s. They were not designed to work with big 
+data in mind in those days.
+\item Apriori algorithm, being a classical association rule mining 
+algorithm is known to have a drawback in scalability. The 
+time performance in big O notation would have it scale up 
+exponentially to the dimensions or the number of attributes 
+of the data.
+\item In order to tackle the challenges of association rule 
+mining over big data or big dataset where the data are 
+usually presented as a two-dimensional data matrix, some 
+modifications are needed either at the algorithmic level or at 
+the data processing level.
+    \end{itemize}
+\end{frame}
+\begin{frame}{}
+    \begin{itemize}
+ \item Earlier on, the authors advocated an alternative preprocessing method which aims at improving the quality 
+of association rules. 
+\item It first segments the full dataset into 
+clusters prior to running the association rule mining 
+algorithm on. The underlying concept is to mine the 
+association rules from subsets of the data which are 
+supposedly more concentrated in data that occur frequently 
+together. This is because clustering helps pulling data that 
+are similar to each other together, reducing the distance 
+space between the scattered data throughout the whole 
+dataset.
+\item By this simple idea, the overall association rules 
+quality improves. But the problem is, in advance there are 
+no way to know which is most appropriate to be mined by 
+association rule mining algorithm. 
+\item Although the cluster size 
+is smaller than the original dataset size, associate rule 
+mining algorithm such as Apriori still takes time. 
+    \end{itemize}
+\end{frame}
+\begin{frame}{Proposed Methodology}
+    \begin{itemize}
+        \item Traditional association rule mining loads the whole 
+dataset for generating association rules. 
+\item To get around this time-consuming process, the rule generated 
+process is controlled by harvesting only a certain number of rules which usually are the top ones.
+\item Alternatively, a subset of dataset is used for the association 
+rule mining instead of the whole one. In this case, out of 
+several clusters or subsets of the original dataset that was 
+partitioned by some clustering algorithm, there should be 
+one or few out of all clusters should be used for incomplete 
+association rule mining.
+\item The qualities of the clusters vary as there is 
+no rule-of-thumb exists in either assuring the clusters are 
+made all suitable for association rule mining or knowing in 
+advance which cluster is most suitable for highest quality 
+rules to be mined.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+    \item As a solution, the proposed process advocates using a statistical property called Prior Probability to be used. Hence it is no longer necessary to try out every cluster, because a user can base on the Prior Probability (PP) to 
+decide which cluster or a short-listed set of clusters to be 
+selected for association rule mining. Thus speeding up the process.
+\item Due to the speed saving, this association rule 
+mining strategy is called Fast Cluster Learning (FCL). 
+\item FCL divides up the large dataset into small fragments, not randomly, but according to the similar data which shall be grouped together and PP is calculated for each of these clusters.
+\item With the PP value in place for each cluster, the cluster 
+candidates can be sorted in descending order. The cluster 
+candidate that has the highest PP value is suggested to be 
+chosen for immediate association rule mining.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item In the methodology, parameter free clustering algorithm 
+namely Expectation Maximization (EM) algorithm is 
+suggested to be used. It will automatically find the optimal 
+number of clusters by its maximization mechanism. 
+\item  For brevity, the data items only have a 
+single numeric attribute whose values distributed Normally 
+over all the $k$ clusters, $C_1, C_2 .. C_j.. C_k$
+ where $j\epsilon[1,k]$. In a very primitive state of probabilistic clustering, the following are the parameters of the model that need to be calculated: 
+ \begin{block}
+ $Model\_Param = Model(pp_j, \mu_j, \sigma_j, \text{where } j\epsilon[1,k]) $
+ \end{block}
+ \item At the beginning the 
+Model\_Param values are set randomly; based on the given 
+the current parameter values, the probability of the cluster 
+membership for each data item is computed; the 
+Model\_Param values are re-evaluated and updated using the 
+calculated probabilities which are shown to have yielded 
+better cluster memberships. This iterative process repeats 
+until the Model\_Param appears to converge where no further 
+improvement on the cluster membership can be observed. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Key Phases}
+\textbf{Phase 1 : Expectation step}\\
+\begin{itemize}
+    \item The probability of each data item $x_i$
+ where $i\epsilon [1,n]$ 
+from the dataset is computed for finding out the best cluster 
+membership for the cluster $c_j$
+ where $j\epsilon[1,k]$ using
+ \begin{block}
+ $\pr{E}\forall_{i,j} = \varepsilon_{i,j} = pp_j \times \pr{x_i|c_j}$\\
+ where the cluster $pp_j$ is computed in each $j^{th}$ iteration based on the model parameters values and $\pr{x_i|c_j}$ is calculated from the Normal distribution 
+of the $j^{th}$ cluster where $j\epsilon[1,k]$ given that the current model is 
+configured with the $Model\_Param\epsilon(x_j, \mu_j, \sigma_j)$
+ \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+    \textbf{Phase 2 : Maximization step}
+    \begin{itemize}
+        \item Calculates the most suitable 
+Model\_Param values in order to maximize the likelihood of 
+models that are guessed to match the current positions or 
+memberships of the data items and the model parameters are re-evaluated according to
+\begin{block}
+ $\text{Prior probability: } pp_{i,j} = \sum_i \frac{\varepsilon_{i,j}}{n}$\\
+Mean: $\mu_{i,j} = \frac{\sum_i x_i \times \varepsilon_{i,j}}{\sum_i \varepsilon_{i,j}}$\\
+Standard deviation: $\sigma_{i,j} = \sqrt{\frac{\sum_i \abs{x_i - \mu_j}^2 \times \varepsilon_{i,j}}{\sum_i \varepsilon_{i,j}}}$
+\end{block}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+    \begin{itemize}
+        \item These dual steps repeatedly increase the log-likelihood of 
+all the clusters until there is no more significant refinement 
+according to :
+\begin{block}
+    $\log\pr{x} = \log \sum_j (\pr{x|c_j} \times pp_j)$
+\end{block}
+\item Usually the overall quality of the clusters which is 
+represented by log-likelihood will rise sharply at the 
+beginning over some initial iterations.
+\item In our fast cluster learning methodology, EM(Expectation Maximization) 
+is chosen because it is guaranteed to converge to highest 
+possible log-likelihood fitness.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Limitation}
+\begin{itemize}
+    \item The only limitation is the 
+time consumption which can be significantly large. It is 
+because there exist local maximum and global maximum.
+\item  For prevention of falling into 
+local maximum, the EM algorithm is programmed to run 
+several times for obtaining some chances of reaching the 
+global maximum as each time they start with different 
+random orientation for the initial clusters and model 
+parameters, guessing what their suitable parameter values are.
+\item Hence there is a compromise e between using a heavy algorithm that 
+takes considerable amount of time to run and achieving the 
+best clusters most of the time without specifying the k
+parameter value.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusions}
+    
+    \begin{itemize}
+        \item In this paper, a new data mining methodology called Fast 
+Cluster Learning is proposed.
+\item It is designed for enhancing the quality of rules by association rule mining such as Apriori method.
+\item In this paper, a simple quality indicator called Prior Probability (PP) 
+is proposed to use for quickly identifying a cluster that would 
+be useful for subsequent rule mining. 
+    \end{itemize}
+\end{frame}
+\end{document}
